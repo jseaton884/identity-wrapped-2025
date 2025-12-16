@@ -3695,11 +3695,15 @@
     // Spotlight effect for contributors - detect items in highlight zone
     let spotlightAnimationFrame = null;
 
+    let currentSpotlightName = null;
+    let isPaused = false;
+
     function updateSpotlight(slideElement) {
       const viewport = slideElement.querySelector('.contributor-viewport');
+      const scroll = slideElement.querySelector('.contributor-scroll');
       const contributors = slideElement.querySelectorAll('.contributor-item');
       
-      if (!viewport || contributors.length === 0) return;
+      if (!viewport || !scroll || contributors.length === 0) return;
 
       const viewportRect = viewport.getBoundingClientRect();
       const viewportCenter = viewportRect.top + viewportRect.height / 2;
@@ -3722,8 +3726,26 @@
       });
 
       // Only highlight the single closest item
-      if (closestItem && closestDistance < 80) {
+      if (closestItem && closestDistance < 60) {
         closestItem.classList.add('in-spotlight');
+        
+        // Check if this is a new name entering spotlight
+        const name = closestItem.querySelector('.contributor-name')?.textContent;
+        if (name && name !== currentSpotlightName && !isPaused) {
+          currentSpotlightName = name;
+          isPaused = true;
+          
+          // Pause the animation
+          scroll.style.animationPlayState = 'paused';
+          
+          // Resume after 1 second
+          setTimeout(() => {
+            if (slideElement.classList.contains('active')) {
+              scroll.style.animationPlayState = 'running';
+              isPaused = false;
+            }
+          }, 1000);
+        }
       }
 
       // Continue the animation loop while on this slide
@@ -3774,6 +3796,9 @@
         cancelAnimationFrame(spotlightAnimationFrame);
         spotlightAnimationFrame = null;
       }
+      // Reset spotlight state
+      currentSpotlightName = null;
+      isPaused = false;
       // Remove all spotlights
       document.querySelectorAll('.contributor-item.in-spotlight').forEach(c => {
         c.classList.remove('in-spotlight');
