@@ -367,18 +367,7 @@
       overflow: hidden;
     }
 
-    /* Fixed highlight zone in the middle */
-    .highlight-zone {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 480px;
-      max-width: 92%;
-      height: 90px;
-      background: rgba(255, 255, 255, 0.12);
-      border: 3px solid rgba(254, 202, 87, 0.7);
-      border-radius: 100px;
+    /* Highlight zone removed for cleaner experience */
       box-shadow: 0 0 40px rgba(254, 202, 87, 0.3), inset 0 0 30px rgba(255, 255, 255, 0.1);
       z-index: 5;
       pointer-events: none;
@@ -2327,12 +2316,6 @@
         font-size: 1rem;
       }
 
-      .highlight-zone {
-        width: 450px;
-        max-width: 95vw;
-        height: 120px;
-      }
-
       /* Slide 4: Pods */
       .pods-grid {
         grid-template-columns: 1fr;
@@ -2670,12 +2653,6 @@
         font-size: 0.95rem;
       }
 
-      .highlight-zone {
-        width: 380px;
-        max-width: 98vw;
-        height: 110px;
-      }
-
       .country-tag {
         font-size: 0.9rem;
       }
@@ -2781,7 +2758,6 @@
         <p class="contributors-subtitle">52 humans who made the magic happen</p>
       </div>
       <div class="contributor-viewport">
-        <div class="highlight-zone"></div>
         <div class="contributor-scroll">
         <div class="contributor-item">
           <div class="contributor-avatar">AK</div>
@@ -3708,26 +3684,34 @@
 
     function updateSpotlight(slideElement) {
       const viewport = slideElement.querySelector('.contributor-viewport');
-      const highlightZone = slideElement.querySelector('.highlight-zone');
       const contributors = slideElement.querySelectorAll('.contributor-item');
       
-      if (!viewport || !highlightZone || contributors.length === 0) return;
+      if (!viewport || contributors.length === 0) return;
 
-      const highlightRect = highlightZone.getBoundingClientRect();
-      const highlightCenter = highlightRect.top + highlightRect.height / 2;
+      const viewportRect = viewport.getBoundingClientRect();
+      const viewportCenter = viewportRect.top + viewportRect.height / 2;
+
+      // Find the single closest item to center
+      let closestItem = null;
+      let closestDistance = Infinity;
 
       contributors.forEach(item => {
         const itemRect = item.getBoundingClientRect();
         const itemCenter = itemRect.top + itemRect.height / 2;
-        const distance = Math.abs(itemCenter - highlightCenter);
+        const distance = Math.abs(itemCenter - viewportCenter);
         
-        // Item is in spotlight if its center is within the highlight zone
-        if (distance < highlightRect.height / 2) {
-          item.classList.add('in-spotlight');
-        } else {
-          item.classList.remove('in-spotlight');
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestItem = item;
         }
+        
+        item.classList.remove('in-spotlight');
       });
+
+      // Only highlight the single closest item
+      if (closestItem && closestDistance < 80) {
+        closestItem.classList.add('in-spotlight');
+      }
 
       // Continue the animation loop while on this slide
       if (slideElement.classList.contains('active')) {
