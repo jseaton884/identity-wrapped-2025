@@ -2332,11 +2332,16 @@
       }
 
       .slide-pods {
-        padding-top: 3.5rem;
+        padding-top: 1rem;
       }
 
       .pods-header {
-        padding-top: 1rem;
+        padding-top: 0;
+        margin-top: 0;
+      }
+      
+      .pods-title {
+        margin-top: 0;
       }
 
       .pod-emoji {
@@ -3821,8 +3826,11 @@
 
       slides[index].classList.add('active');
       
-      // Reset scroll position to top when entering a slide
+      // Reset scroll position to top when entering a slide (with delay to ensure it takes effect)
       slides[index].scrollTop = 0;
+      setTimeout(() => {
+        slides[index].scrollTop = 0;
+      }, 50);
 
       // Check if entering fun stats slide and trigger counting
       if (slides[index].classList.contains('slide-fun')) {
