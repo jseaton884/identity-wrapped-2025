@@ -3783,6 +3783,9 @@
       }, 600);
 
       slides[index].classList.add('active');
+      
+      // Reset scroll position to top when entering a slide
+      slides[index].scrollTop = 0;
 
       // Check if entering fun stats slide and trigger counting
       if (slides[index].classList.contains('slide-fun')) {
