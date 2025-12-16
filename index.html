@@ -2261,43 +2261,43 @@
     @media (max-width: 768px) {
       /* Base slide adjustments */
       .slide {
-        padding: 1rem;
+        padding: 1.5rem 1rem;
       }
 
-      /* Typography scale down */
+      /* Typography - MUCH LARGER for mobile */
       :root {
-        --title-size: clamp(1.6rem, 7vw, 2.2rem);
-        --subtitle-size: clamp(1rem, 3.5vw, 1.2rem);
-        --body-size: clamp(0.9rem, 2.5vw, 1rem);
+        --title-size: clamp(1.8rem, 8vw, 2.5rem);
+        --subtitle-size: clamp(1.1rem, 4vw, 1.4rem);
+        --body-size: clamp(1rem, 3vw, 1.15rem);
         --header-margin: 1.5rem;
-        --card-padding: 1rem;
+        --card-padding: 1.25rem;
       }
 
       /* Slide 1: Intro */
       .intro-year {
-        font-size: clamp(4rem, 20vw, 6rem);
+        font-size: clamp(5rem, 22vw, 7rem);
       }
 
       .intro-subtitle {
-        font-size: clamp(1rem, 4vw, 1.5rem);
+        font-size: clamp(1.2rem, 5vw, 1.8rem);
       }
 
       .intro-pod-name {
-        font-size: clamp(0.9rem, 3vw, 1.2rem);
+        font-size: clamp(1.1rem, 4vw, 1.4rem);
       }
 
       /* Slide 2: Big Stat */
       .stat-number {
-        font-size: clamp(5rem, 25vw, 8rem);
+        font-size: clamp(6rem, 28vw, 9rem);
       }
 
       .stat-label {
-        font-size: clamp(0.9rem, 3vw, 1.2rem);
+        font-size: clamp(1.1rem, 4vw, 1.5rem);
       }
 
       .stat-callout {
-        font-size: 0.8rem;
-        padding: 0.4rem 0.8rem;
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
         right: -5px;
         top: -5px;
       }
@@ -2308,61 +2308,61 @@
       }
 
       .contributor-card {
-        width: 320px;
-        max-width: 90vw;
-        padding: 0.8rem 1rem;
+        width: 340px;
+        max-width: 92vw;
+        padding: 1rem 1.25rem;
       }
 
       .contributor-avatar {
-        width: 40px;
-        height: 40px;
-        font-size: 0.8rem;
-      }
-
-      .contributor-name {
+        width: 50px;
+        height: 50px;
         font-size: 1rem;
       }
 
+      .contributor-name {
+        font-size: 1.25rem;
+      }
+
       .contributor-title {
-        font-size: 0.85rem;
+        font-size: 1rem;
       }
 
       .highlight-zone {
         width: 450px;
         max-width: 95vw;
-        height: 100px;
+        height: 120px;
       }
 
       /* Slide 4: Pods */
       .pods-grid {
         grid-template-columns: 1fr;
-        gap: 1rem;
+        gap: 1.25rem;
         max-width: 100%;
       }
 
       .pod-card {
-        padding: 1rem;
+        padding: 1.25rem;
       }
 
       .pod-emoji {
-        font-size: 2rem;
+        font-size: 2.5rem;
       }
 
       .pod-name {
-        font-size: 1.1rem;
+        font-size: 1.3rem;
       }
 
       .pod-vibe {
-        font-size: 0.9rem;
+        font-size: 1.05rem;
       }
 
       .pod-highlight {
-        font-size: 0.95rem;
+        font-size: 1.1rem;
       }
 
       /* Slide 5: Timeline/Mountain */
       .mountain-container {
-        height: 150px;
+        height: 140px;
         max-width: 100%;
       }
 
@@ -2374,23 +2374,24 @@
       }
 
       .month-label {
-        min-width: 45px;
-        font-size: 0.8rem;
+        min-width: 50px;
+        font-size: 0.95rem;
       }
 
       .month-count {
-        font-size: 0.85rem;
+        font-size: 1rem;
+        font-weight: 700;
       }
 
       .timeline-callout {
-        top: 22%;
-        right: 10%;
+        top: 18%;
+        right: 8%;
         left: auto;
         transform: rotate(-5deg);
       }
 
       .callout-text {
-        font-size: clamp(1rem, 4vw, 1.4rem);
+        font-size: clamp(1.2rem, 5vw, 1.6rem);
       }
 
       .callout-arrow {
@@ -2400,26 +2401,26 @@
       }
 
       .climber {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
       }
 
       /* Slide 6: Fun Stats */
       .fun-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem 1rem;
+        gap: 2rem 1.5rem;
         max-width: 100%;
       }
 
       .fun-value {
-        font-size: clamp(2rem, 12vw, 3.5rem);
+        font-size: clamp(2.5rem, 14vw, 4rem);
       }
 
       .fun-emoji {
-        font-size: 1.5rem;
+        font-size: 2rem;
       }
 
       .fun-label {
-        font-size: 0.85rem;
+        font-size: 1rem;
       }
 
       .pride-stamp {
@@ -2429,97 +2430,97 @@
       }
 
       .stamp-inner {
-        width: clamp(120px, 22vw, 150px);
-        height: clamp(120px, 22vw, 150px);
+        width: clamp(130px, 28vw, 160px);
+        height: clamp(130px, 28vw, 160px);
         border-width: 3px;
       }
 
       .stamp-emoji {
-        font-size: 1.6rem;
+        font-size: 2rem;
       }
 
       .stamp-text {
-        font-size: clamp(0.7rem, 2vw, 0.9rem);
+        font-size: clamp(0.85rem, 2.5vw, 1rem);
       }
 
       /* Slide 7: World Map */
       .world-map-container {
         max-width: 100%;
-        margin-bottom: 1rem;
+        margin-bottom: 1.5rem;
       }
 
       .countries-grid {
-        gap: 0.4rem;
+        gap: 0.5rem;
         max-width: 100%;
       }
 
       .country-tag {
-        font-size: 0.8rem;
-        padding: 0.3rem 0.6rem;
+        font-size: 1rem;
+        padding: 0.4rem 0.75rem;
       }
 
       .countries-rip {
-        gap: 0.3rem 0.4rem;
-        margin-top: 0.8rem;
+        gap: 0.4rem 0.5rem;
+        margin-top: 1rem;
       }
 
       .country-tag-rip {
-        font-size: 0.55rem;
-        padding: 0.2rem 0.4rem;
+        font-size: 0.85rem;
+        padding: 0.3rem 0.5rem;
       }
 
       .asterisk {
-        font-size: 0.7rem;
+        font-size: 0.9rem;
       }
 
       /* Slide 8: Achievements */
       .achievements-list {
-        gap: 0.8rem;
+        gap: 1rem;
         max-width: 100%;
       }
 
       .achievement-item {
-        padding: 0.8rem 1rem;
-        gap: 0.8rem;
+        padding: 1rem 1.25rem;
+        gap: 1rem;
       }
 
       .achievement-icon {
-        font-size: 1.5rem;
+        font-size: 2rem;
       }
 
       .achievement-title {
-        font-size: 1rem;
+        font-size: 1.15rem;
       }
 
       .achievement-desc {
-        font-size: 0.9rem;
+        font-size: 1rem;
       }
 
       .achievement-check {
-        font-size: 1rem;
-        right: 0.5rem;
+        font-size: 1.2rem;
+        right: 0.75rem;
       }
 
       /* Slide 9: 2026 Preview */
       .slide-future {
-        padding: 1rem 0.5rem;
+        padding: 1.5rem 1rem;
       }
 
       .future-timeline {
-        gap: 0.5rem;
+        gap: 0.6rem;
         max-width: 100%;
-        padding-left: 35px;
+        padding-left: 40px;
       }
 
       .future-timeline::before {
-        left: 14px;
+        left: 16px;
       }
 
       .future-node {
-        width: 28px;
-        height: 28px;
-        font-size: 0.85rem;
-        left: -35px;
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+        left: -38px;
       }
 
       .future-item {
@@ -2528,35 +2529,35 @@
       }
 
       .future-content {
-        padding: 0.5rem 0.6rem;
-        margin-left: -0.5rem;
+        padding: 0.7rem 0.9rem;
+        margin-left: -0.4rem;
       }
 
       .future-status {
-        font-size: 0.7rem;
-        padding: 0.2rem 0.5rem;
+        font-size: 0.8rem;
+        padding: 0.25rem 0.6rem;
       }
 
       .future-name {
-        font-size: 0.95rem;
+        font-size: 1.1rem;
       }
 
       .future-desc {
-        font-size: 0.8rem;
+        font-size: 0.95rem;
       }
 
       .future-tagline {
-        font-size: 0.85rem;
-        margin-top: 1rem;
+        font-size: 1rem;
+        margin-top: 1.25rem;
       }
 
       /* Slide 10: Zeta Age */
       .age-label {
-        font-size: clamp(0.9rem, 3vw, 1.2rem);
+        font-size: clamp(1.1rem, 4vw, 1.4rem);
       }
 
       .age-title {
-        font-size: clamp(3rem, 15vw, 5rem);
+        font-size: clamp(4rem, 18vw, 6rem);
       }
 
       .age-drumroll .dot {
@@ -2618,33 +2619,77 @@
     /* Extra small screens */
     @media (max-width: 400px) {
       .slide {
-        padding: 0.75rem;
+        padding: 1rem 0.75rem;
+      }
+
+      :root {
+        --title-size: clamp(1.6rem, 9vw, 2.2rem);
+        --subtitle-size: clamp(1rem, 4.5vw, 1.3rem);
+        --body-size: clamp(0.95rem, 3.5vw, 1.1rem);
       }
 
       .fun-grid {
-        gap: 1rem 0.5rem;
+        gap: 1.5rem 1rem;
       }
 
       .fun-value {
-        font-size: clamp(1.8rem, 15vw, 2.5rem);
+        font-size: clamp(2.2rem, 16vw, 3rem);
+      }
+
+      .fun-label {
+        font-size: 0.95rem;
       }
 
       .pods-subtitle {
-        font-size: 0.7rem;
+        font-size: 0.9rem;
       }
 
       .month-label {
-        min-width: 35px;
+        min-width: 40px;
+        font-size: 0.85rem;
       }
 
       .contributor-card {
-        width: 280px;
+        width: 300px;
+        max-width: 95vw;
+      }
+
+      .contributor-name {
+        font-size: 1.15rem;
+      }
+
+      .contributor-title {
+        font-size: 0.95rem;
       }
 
       .highlight-zone {
-        width: 370px;
-        max-width: 95vw;
-        height: 95px;
+        width: 380px;
+        max-width: 98vw;
+        height: 110px;
+      }
+
+      .country-tag {
+        font-size: 0.9rem;
+      }
+
+      .country-tag-rip {
+        font-size: 0.8rem;
+      }
+
+      .achievement-title {
+        font-size: 1.05rem;
+      }
+
+      .achievement-desc {
+        font-size: 0.95rem;
+      }
+
+      .future-name {
+        font-size: 1rem;
+      }
+
+      .future-desc {
+        font-size: 0.9rem;
       }
     }
   </style>
