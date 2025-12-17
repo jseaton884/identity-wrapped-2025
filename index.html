@@ -1860,6 +1860,38 @@
       }
     }
 
+    /* Hype callout */
+    .future-hype {
+      margin-top: 1.5rem;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #fff;
+      opacity: 0;
+      text-align: center;
+      position: relative;
+      z-index: 10;
+    }
+
+    .slide.active .future-hype {
+      animation: hypeReveal 0.8s ease-out 2.5s forwards;
+    }
+
+    .hype-word {
+      background: linear-gradient(90deg, #64ffda, #feca57, #ff6b6b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    @keyframes hypeReveal {
+      0% { opacity: 0; transform: scale(0.8); }
+      50% { transform: scale(1.1); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
     /* Coming soon text */
     .future-footer {
       margin-top: 1.5rem;
@@ -2753,6 +2785,15 @@
         font-size: 0.75rem;
         margin-top: 0.75rem;
         flex-shrink: 0;
+      }
+
+      .future-hype {
+        font-size: 0.9rem;
+        margin-top: 1rem;
+      }
+
+      .hype-word {
+        font-size: 1.1rem;
       }
 
       /* Slide 10: Zeta Age */
@@ -3783,6 +3824,9 @@
             <div class="future-desc">Full identity integration → Zeta Live Athena OS launch</div>
           </div>
         </div>
+      </div>
+      <div class="future-hype">
+        🚀 2026 is going to be <span class="hype-word">INCREDIBLE</span> 🚀
       </div>
       <div class="future-footer">⟨ The future is identified ⟩</div>
     </div>
