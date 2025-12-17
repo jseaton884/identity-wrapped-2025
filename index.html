@@ -3731,42 +3731,41 @@
     }
 
     // Spotlight effect for contributors - detect items in highlight zone
-    let spotlightAnimationFrame = null;
+    let spotlightInterval = null;
 
     function updateSpotlight(slideElement) {
-      const viewport = slideElement.querySelector('.contributor-viewport');
-      const contributors = slideElement.querySelectorAll('.contributor-item');
-      
-      if (!viewport || contributors.length === 0) return;
-
-      const viewportRect = viewport.getBoundingClientRect();
-      const viewportCenter = viewportRect.top + viewportRect.height / 2;
-
-      // Find the single closest item to center
-      let closestItem = null;
-      let closestDistance = Infinity;
-
-      contributors.forEach(item => {
-        const itemRect = item.getBoundingClientRect();
-        const itemCenter = itemRect.top + itemRect.height / 2;
-        const distance = Math.abs(itemCenter - viewportCenter);
+      try {
+        const viewport = slideElement.querySelector('.contributor-viewport');
+        const contributors = slideElement.querySelectorAll('.contributor-item');
         
-        if (distance < closestDistance) {
-          closestDistance = distance;
-          closestItem = item;
+        if (!viewport || contributors.length === 0) return;
+
+        const viewportRect = viewport.getBoundingClientRect();
+        const viewportCenter = viewportRect.top + viewportRect.height / 2;
+
+        // Find the single closest item to center
+        let closestItem = null;
+        let closestDistance = Infinity;
+
+        contributors.forEach(item => {
+          const itemRect = item.getBoundingClientRect();
+          const itemCenter = itemRect.top + itemRect.height / 2;
+          const distance = Math.abs(itemCenter - viewportCenter);
+          
+          if (distance < closestDistance) {
+            closestDistance = distance;
+            closestItem = item;
+          }
+        });
+
+        // Remove spotlight from all, then add to closest
+        contributors.forEach(item => item.classList.remove('in-spotlight'));
+        
+        if (closestItem && closestDistance < 120) {
+          closestItem.classList.add('in-spotlight');
         }
-        
-        item.classList.remove('in-spotlight');
-      });
-
-      // Only highlight the single closest item
-      if (closestItem && closestDistance < 100) {
-        closestItem.classList.add('in-spotlight');
-      }
-
-      // Continue the animation loop while on this slide
-      if (slideElement.classList.contains('active')) {
-        spotlightAnimationFrame = requestAnimationFrame(() => updateSpotlight(slideElement));
+      } catch (e) {
+        console.error('Spotlight error:', e);
       }
     }
 
@@ -3779,6 +3778,9 @@
     }
 
     function startSpotlightTracking(slideElement) {
+      // Stop any existing tracking first
+      stopSpotlightTracking();
+      
       const scroll = slideElement.querySelector('.contributor-scroll');
       if (scroll && !scroll.dataset.initialized) {
         const items = Array.from(scroll.querySelectorAll('.contributor-item'));
@@ -3800,17 +3802,21 @@
         
         scroll.dataset.initialized = 'true';
       }
-      
-      // Start tracking after a short delay
-      setTimeout(() => {
-        updateSpotlight(slideElement);
-      }, 100);
+
+      // Use setInterval for more reliable updates (every 50ms)
+      spotlightInterval = setInterval(() => {
+        if (slideElement.classList.contains('active')) {
+          updateSpotlight(slideElement);
+        } else {
+          stopSpotlightTracking();
+        }
+      }, 50);
     }
 
     function stopSpotlightTracking() {
-      if (spotlightAnimationFrame) {
-        cancelAnimationFrame(spotlightAnimationFrame);
-        spotlightAnimationFrame = null;
+      if (spotlightInterval) {
+        clearInterval(spotlightInterval);
+        spotlightInterval = null;
       }
       // Remove all spotlights
       document.querySelectorAll('.contributor-item.in-spotlight').forEach(c => {
