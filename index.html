@@ -2128,14 +2128,29 @@
       margin-right: auto;
     }
 
-    .finale-team-list {
+    .finale-pods-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
       margin-top: 2rem;
-      font-size: 0.9rem;
-      color: #fff;
-      max-width: 600px;
       text-align: center;
-      margin-left: auto;
-      margin-right: auto;
+    }
+
+    .finale-pod-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      opacity: 0;
+      animation: podRevealFinale 0.5s ease-out forwards;
+    }
+
+    .finale-pod-name:nth-child(1) { animation-delay: 1.5s; color: #ff6b6b; }
+    .finale-pod-name:nth-child(2) { animation-delay: 1.65s; color: #00d2d3; }
+    .finale-pod-name:nth-child(3) { animation-delay: 1.8s; color: #feca57; }
+    .finale-pod-name:nth-child(4) { animation-delay: 1.95s; color: #ff9ff3; }
+
+    @keyframes podRevealFinale {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .finale-see-you {
@@ -2785,9 +2800,13 @@
         line-height: 1.5;
       }
 
-      .finale-team-list {
-        font-size: 0.75rem;
+      .finale-pods-list {
+        gap: 0.3rem;
         margin-top: 1rem;
+      }
+
+      .finale-pod-name {
+        font-size: 0.9rem;
       }
 
       .finale-see-you {
@@ -3791,9 +3810,12 @@
           From graphs to tags, from ZID to HIRO, from 16,218 tickets to 52 brilliant humans — 
           you built the foundation that powers Zeta's future. 
         </p>
-        <p class="finale-team-list">
-          Super Graph • 1st Party Identity • Addressability • Real-time Events
-        </p>
+        <div class="finale-pods-list">
+          <div class="finale-pod-name">Super Graph</div>
+          <div class="finale-pod-name">1st Party Identity</div>
+          <div class="finale-pod-name">Addressability</div>
+          <div class="finale-pod-name">Real-time Events</div>
+        </div>
         <p class="finale-see-you">See you in 2026, legends! 🚀</p>
       </div>
     </div>
