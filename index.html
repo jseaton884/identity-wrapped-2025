@@ -2381,16 +2381,39 @@
       }
 
       /* Slide 5: Timeline/Mountain */
+      .slide-mountain {
+        padding: 1rem 0.5rem;
+        overflow-x: hidden;
+      }
+
       .mountain-container {
-        height: 140px;
+        height: 120px;
         max-width: 100%;
+        overflow: hidden;
+      }
+
+      .mountain-svg {
+        width: 100%;
+        height: 100%;
       }
 
       .month-labels {
         flex-wrap: nowrap;
-        overflow-x: auto;
-        padding: 0 5px;
+        padding: 0;
         gap: 0;
+        max-width: 100%;
+        overflow: hidden;
+      }
+
+      .month-label {
+        font-size: 0.55rem;
+        min-width: 0;
+        flex: 1;
+        padding: 0 1px;
+      }
+
+      .month-count {
+        font-size: 0.7rem;
       }
 
       .month-label {
@@ -3278,16 +3301,6 @@
       </div>
       <div class="fun-grid">
         <div class="fun-card">
-          <div class="fun-emoji">🎫</div>
-          <div class="fun-value" data-target="496">0</div>
-          <div class="fun-label">Jira tickets shipped</div>
-        </div>
-        <div class="fun-card">
-          <div class="fun-emoji">👥</div>
-          <div class="fun-value" data-target="52">0</div>
-          <div class="fun-label">Contributors across pods</div>
-        </div>
-        <div class="fun-card">
           <div class="fun-emoji">🏢</div>
           <div class="fun-value" data-target="4">0</div>
           <div class="fun-label">Product pods united</div>
@@ -3295,7 +3308,17 @@
         <div class="fun-card">
           <div class="fun-emoji">🌍</div>
           <div class="fun-value" data-target="8">0</div>
-          <div class="fun-label">New countries launched<br><span style="font-size: 0.6rem; opacity: 0.7;">(we tried for 12... close enough 🤷)</span></div>
+          <div class="fun-label">New countries launched<br><span style="font-size: 0.6rem; opacity: 0.7;">(we tried for 12... close enough)</span></div>
+        </div>
+        <div class="fun-card">
+          <div class="fun-emoji">👥</div>
+          <div class="fun-value" data-target="52">0</div>
+          <div class="fun-label">Contributors across pods</div>
+        </div>
+        <div class="fun-card">
+          <div class="fun-emoji">🎫</div>
+          <div class="fun-value" data-target="496">0</div>
+          <div class="fun-label">Jira tickets shipped</div>
         </div>
       </div>
       
@@ -3640,12 +3663,11 @@
         <div class="age-drumroll"><span>.</span><span>.</span><span>.</span></div>
         <div class="age-joke">
           You know what —<br>
-          <span class="skip-text">let's actually skip this one.</span> 😅
+          <span class="skip-text">let's actually skip this one.</span>
         </div>
         <div class="age-subtext">
           (496 tickets, 18 initiatives, and countless Slack threads later... we all feel it.)
         </div>
-        <div class="age-emoji">👴🏻👵🏻</div>
       </div>
       <div class="skip-arrow">maybe next year →</div>
     </div>
@@ -3666,7 +3688,7 @@
     </div>
 
     <!-- Navigation Hint -->
-    <div class="nav-hint">Tap or press → to continue</div>
+    <div class="nav-hint">Click or swipe right →</div>
   </div>
 
   <script>
