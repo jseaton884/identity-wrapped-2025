@@ -135,6 +135,44 @@
       50% { transform: translate(-5%, 5%) rotate(5deg); }
     }
 
+    /* Zeta Branding */
+    .zeta-logo-corner {
+      position: absolute;
+      top: 1.5rem;
+      left: 1.5rem;
+      z-index: 100;
+      opacity: 0;
+      animation: fadeInZeta 1s ease-out 0.5s forwards;
+    }
+
+    .zeta-wordmark {
+      width: 80px;
+      height: 32px;
+      color: rgba(255, 255, 255, 0.7);
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    }
+
+    @keyframes fadeInZeta {
+      to { opacity: 1; }
+    }
+
+    .zeta-powered {
+      position: absolute;
+      bottom: 4rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.7rem;
+      color: rgba(255, 255, 255, 0.4);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      z-index: 100;
+    }
+
+    .zeta-powered .zeta-inline {
+      color: #64ffda;
+      font-weight: 600;
+    }
+
     .intro-year {
       font-family: 'Playfair Display', serif;
       font-size: clamp(5rem, 18vw, 14rem);
@@ -2196,6 +2234,38 @@
       letter-spacing: 0.05em;
     }
 
+    .finale-zeta-badge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+    }
+
+    .slide.active .finale-zeta-badge {
+      animation: badgeReveal 1s ease-out 0.3s forwards;
+    }
+
+    .zeta-wordmark-finale {
+      width: 100px;
+      height: 40px;
+      color: #64ffda;
+      filter: drop-shadow(0 0 10px rgba(100, 255, 218, 0.4));
+    }
+
+    .finale-zeta-division {
+      font-size: 0.9rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.6);
+      margin-top: -0.25rem;
+    }
+
+    @keyframes badgeReveal {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
     .confetti {
       position: absolute;
       width: 10px;
@@ -2857,6 +2927,29 @@
         margin-top: 1.5rem;
       }
 
+      .zeta-logo-corner {
+        top: 1rem;
+        left: 1rem;
+      }
+
+      .zeta-wordmark {
+        width: 60px;
+        height: 24px;
+      }
+
+      .finale-zeta-badge {
+        margin-bottom: 1rem;
+      }
+
+      .zeta-wordmark-finale {
+        width: 80px;
+        height: 32px;
+      }
+
+      .finale-zeta-division {
+        font-size: 0.75rem;
+      }
+
       /* Navigation */
       .dots {
         gap: 6px;
@@ -2952,6 +3045,11 @@
     <!-- SLIDE 1: Intro -->
     <div class="slide slide-intro active" data-slide="0">
       <div class="particles" id="particles"></div>
+      <div class="zeta-logo-corner">
+        <svg viewBox="0 0 100 40" class="zeta-wordmark">
+          <text x="50" y="30" text-anchor="middle" fill="currentColor" font-family="Arial, sans-serif" font-weight="700" font-size="32">ZETA</text>
+        </svg>
+      </div>
       <div class="intro-year">2025</div>
       <div class="intro-subtitle">Identity Wrapped</div>
       <div class="intro-pods-list">
@@ -2960,6 +3058,7 @@
         <div class="intro-pod-name">Addressability</div>
         <div class="intro-pod-name">Real-time Events</div>
       </div>
+      <div class="zeta-powered">Powered by <span class="zeta-inline">Zeta</span> Identity</div>
     </div>
 
     <!-- SLIDE 2: Big Stat - Initiatives -->
@@ -3851,6 +3950,12 @@
     <!-- SLIDE 11: Finale -->
     <div class="slide slide-finale" data-slide="10">
       <div class="finale-content">
+        <div class="finale-zeta-badge">
+          <svg viewBox="0 0 100 40" class="zeta-wordmark-finale">
+            <text x="50" y="28" text-anchor="middle" fill="currentColor" font-family="Arial, sans-serif" font-weight="700" font-size="28">ZETA</text>
+          </svg>
+          <span class="finale-zeta-division">Identity</span>
+        </div>
         <h1 class="finale-message">Here's to Identity.</h1>
         <p class="finale-subtext">
           From graphs to tags, from ZID to HIRO, from 16,218 tickets to 52 brilliant humans — 
