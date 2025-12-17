@@ -2487,6 +2487,7 @@
       /* Slide 8: Achievements */
       .slide-achievements {
         padding-top: 3rem;
+        justify-content: flex-start;
       }
 
       .achievements-list {
@@ -3834,11 +3835,11 @@
 
       slides[index].classList.add('active');
       
-      // Reset scroll position to top when entering a slide (with delay to ensure it takes effect)
+      // Reset scroll position to top when entering a slide (multiple attempts to ensure it works)
       slides[index].scrollTop = 0;
-      setTimeout(() => {
-        slides[index].scrollTop = 0;
-      }, 50);
+      setTimeout(() => { slides[index].scrollTop = 0; }, 50);
+      setTimeout(() => { slides[index].scrollTop = 0; }, 150);
+      setTimeout(() => { slides[index].scrollTop = 0; }, 300);
 
       // Check if entering fun stats slide and trigger counting
       if (slides[index].classList.contains('slide-fun')) {
